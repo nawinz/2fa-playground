@@ -1,0 +1,9 @@
+RewriteEngine On
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+	Header set Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"
+</IfModule>
+RewriteRule ^$ playground.php [L]
+RewriteRule ^index.php$ playground.php [L]
+RewriteRule ^!/([^/]*)$ rest.php?d=$1 [L]
+RewriteRule ^!/([^/]*)/$ rest.php?d=$1 [L]
